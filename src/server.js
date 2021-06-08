@@ -36,9 +36,17 @@ app.post("/create", async (req, res) => {
     name: req.body.name,
     quote: req.body.quote
   });
+});
 
-app.post("/delete/:name", async (req, res) => {
+app.post("/delete", async (req, res) => {
   TestController.delete_teste({
     name: req.body.name
+  });
+});
+
+app.post("/update", async (req, res) => {
+  TestController.update_teste({
+    name: req.body.name,
+    quote: req.body.quote
   });
 });

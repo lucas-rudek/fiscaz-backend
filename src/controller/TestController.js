@@ -1,8 +1,8 @@
 const Test = require("../models/Test");
 
-async function create_teste(teste) {
+async function create_teste(req) {
   try {
-    const c = new Test(teste);
+    const c = new Test(req);
     await c.save();
     console.log(c);
   } catch (error) {
@@ -19,13 +19,11 @@ async function find_teste() {
   }
 }
 
-async function update_teste(teste) {
+async function update_teste(req) {
   try {
     const doc = await Test.findOneAndUpdate(
-      { name: "Ken" },
-      {
-        specials: ["Haadoken", "Shoryuken", "Tatsumaki Senpukyaku"]
-      }
+      { name: req.name },
+      { quote: req.quote }
     );
     console.log(doc);
   } catch (error) {
@@ -35,7 +33,7 @@ async function update_teste(teste) {
 
 async function delete_teste(res) {
   try {
-    const doc = await Test.findOneAndDelete({ name: res.body.name });
+    const doc = await Test.findOneAndDelete({ name: res.name });
     console.log(doc);
   } catch (error) {
     console.log(error);
