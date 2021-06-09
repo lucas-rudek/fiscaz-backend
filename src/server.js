@@ -15,6 +15,8 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.use("/", router);
+
 mongoose.connect(dbConfig.url, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -25,5 +27,3 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
-app.use("/", router);

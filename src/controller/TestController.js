@@ -4,16 +4,15 @@ async function create_teste(req) {
   try {
     const c = new Test(req);
     await c.save();
-    console.log(c);
   } catch (error) {
     console.log(error);
   }
 }
 
-async function find_teste() {
+async function find_teste(res) {
   try {
     const c = await Test.find({});
-    console.log(c);
+    return c;
   } catch (error) {
     console.log(error);
   }
