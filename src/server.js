@@ -4,8 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 const dbConfig = require("./config/db.config.js");
-
-const TestController = require("./controller/TestController.js");
+var router = require("./routes/router.js");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -27,26 +26,4 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
-app.get("/", async (req, res) => {
-  res.sendFile(__dirname + "/view/index.html");
-});
-
-app.post("/create", async (req, res) => {
-  TestController.create_teste({
-    name: req.body.name,
-    quote: req.body.quote
-  });
-});
-
-app.post("/delete", async (req, res) => {
-  TestController.delete_teste({
-    name: req.body.name
-  });
-});
-
-app.post("/update", async (req, res) => {
-  TestController.update_teste({
-    name: req.body.name,
-    quote: req.body.quote
-  });
-});
+app.use("/", router);
