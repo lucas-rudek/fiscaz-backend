@@ -5,8 +5,7 @@ const Schema = mongoose.Schema;
 const Test = new Schema(
   {
     name: String,
-    quote: String,
-    specials: Array
+    quote: String
   },
   { collection: "Teste" }
 );
