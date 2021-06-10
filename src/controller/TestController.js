@@ -11,7 +11,7 @@ async function create_teste(req) {
 
 async function find_teste(res) {
   try {
-    const c = await Test.find({});
+    const c = await Test.find({ name: res });
     return c;
   } catch (error) {
     console.log(error);
