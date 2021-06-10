@@ -5,7 +5,8 @@ var path = require("path");
 const TestController = require("../controller/TestController.js");
 
 router.get("/", async (req, res) => {
-  res.sendFile(path.join(__dirname, "../view", "index.html"));
+  //res.sendFile(path.join(__dirname, "../view", "index.html"));
+  res.send("Hello");
 });
 
 router.get("/usuarios", async (req, res) => {
