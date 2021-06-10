@@ -9,6 +9,15 @@ async function create_teste(req) {
   }
 }
 
+async function findAll_teste() {
+  try {
+    const c = await Test.find({});
+    return c;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 async function find_teste(res) {
   try {
     const c = await Test.find({ name: res });
@@ -39,4 +48,10 @@ async function delete_teste(res) {
   }
 }
 
-module.exports = { create_teste, find_teste, update_teste, delete_teste };
+module.exports = {
+  create_teste,
+  find_teste,
+  findAll_teste,
+  update_teste,
+  delete_teste
+};

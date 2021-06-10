@@ -6,16 +6,16 @@
   </head>
   <body>
     <h1>Teste</h1>
-    <form action="/" method="POST">
+    <form action="/usuarios" method="POST">
       <input type="text" placeholder="name" name="name" />
       <input type="text" placeholder="quote" name="quote" />
       <button type="submit">Submit</button>
     </form>
-    <form action="/delete" method="POST">
+    <form action="/usuarios/delete/:name" method="POST">
       <input type="text" placeholder="name" name="name" />
       <button type="submit">Delete</button>
     </form>
-    <form action="/update" method="POST">
+    <form action="/usuarios/update/:name" method="POST">
       <input type="text" placeholder="name" name="name" />
       <input type="text" placeholder="quote" name="quote" />
       <button type="submit">Update Quote</button>
