@@ -8,12 +8,12 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/processos", async (req, res) => {
-  const c = await Controller.findAll_teste();
+  const c = await Controller.findAll_processo();
   res.json(c);
 });
 
 router.post("/processos", async (req, res) => {
-  await Controller.create_teste({
+  await Controller.create_processo({
     name: req.body.name,
     quote: req.body.quote
   });
@@ -21,19 +21,19 @@ router.post("/processos", async (req, res) => {
 });
 
 router.get("/processos/:name", async (req, res) => {
-  const c = await Controller.find_teste(req.params.name);
+  const c = await Controller.find_processo(req.params.name);
   res.json(c);
 });
 
 router.post("/processos/delete/:name", async (req, res) => {
-  await Controller.delete_teste({
+  await Controller.delete_processo({
     name: req.body.name
   });
   res.send(`Processo deletado: ${req.body.name}.`);
 });
 
 router.post("/processos/update/:name", async (req, res) => {
-  await Controller.update_teste({
+  await Controller.update_processo({
     name: req.body.name,
     quote: req.body.quote
   });
