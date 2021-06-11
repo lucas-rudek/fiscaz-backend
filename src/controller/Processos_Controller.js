@@ -32,10 +32,12 @@ async function update_processo(req) {
   try {
     const doc = await fiscazSchema.findOneAndUpdate(
       { nome_empreendimento: req.nome_empreendimento },
-      { valor_orcado: req.valor_orcado },
-      { autor_projeto: req.autor_projeto },
-      { fiscal_indicado: req.fiscal_indicado },
-      { fiscal_substituto: req.fiscal_substituto }
+      {
+        valor_orcado: req.valor_orcado,
+        autor_projeto: req.autor_projeto,
+        fiscal_indicado: req.fiscal_indicado,
+        fiscal_substituto: req.fiscal_substituto
+      }
     );
     console.log(doc);
   } catch (error) {
