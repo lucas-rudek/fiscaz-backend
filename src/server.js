@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var corsOptions = {
-  origin: "https://gvcej.csb.app" //fiscaz front
+  origin: "https://qg1zm.csb.app" //fiscaz front
 };
 
 app.use(cors(corsOptions));
