@@ -14,30 +14,36 @@ router.get("/processos", async (req, res) => {
 
 router.post("/processos", async (req, res) => {
   await Controller.create_processo({
-    name: req.body.name,
-    quote: req.body.quote
+    nome_empreendimento: req.body.nome_empreendimento,
+    valor_orcado: req.valor_orcado,
+    autor_projeto: req.autor_projeto,
+    fiscal_indicado: req.fiscal_indicado,
+    fiscal_substituto: req.fiscal_substituto
   });
-  res.send(`Processo criado: ${req.body.name}.`);
+  res.send(`Processo criado: ${req.body.nome_empreendimento}.`);
 });
 
-router.get("/processos/:name", async (req, res) => {
-  const c = await Controller.find_processo(req.params.name);
+router.get("/processos/:nome_empreendimento", async (req, res) => {
+  const c = await Controller.find_processo(req.params.nome_empreendimento);
   res.json(c);
 });
 
-router.post("/processos/delete/:name", async (req, res) => {
+router.post("/processos/delete/:nome_empreendimento", async (req, res) => {
   await Controller.delete_processo({
-    name: req.body.name
+    nome_empreendimento: req.body.nome_empreendimento
   });
-  res.send(`Processo deletado: ${req.body.name}.`);
+  res.send(`Processo deletado: ${req.body.nome_empreendimento}.`);
 });
 
-router.post("/processos/update/:name", async (req, res) => {
+router.post("/processos/update/:nome_empreendimento", async (req, res) => {
   await Controller.update_processo({
-    name: req.body.name,
-    quote: req.body.quote
+    nome_empreendimento: req.body.nome_empreendimento,
+    valor_orcado: req.valor_orcado,
+    autor_projeto: req.autor_projeto,
+    fiscal_indicado: req.fiscal_indicado,
+    fiscal_substituto: req.fiscal_substituto
   });
-  res.send(`Processo atualizado: ${req.body.name}.`);
+  res.send(`Processo atualizado: ${req.body.nome_empreendimento}.`);
 });
 
 module.exports = router;

@@ -4,8 +4,11 @@ const Schema = mongoose.Schema;
 
 const fiscazSchema = new Schema(
   {
-    name: String,
-    quote: String
+    nome_empreendimento: String,
+    valor_orcado: Number,
+    autor_projeto: String,
+    fiscal_indicado: String,
+    fiscal_substituto: String
   },
   { collection: "Processos" }
 );

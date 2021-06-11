@@ -20,7 +20,7 @@ async function findAll_processo() {
 
 async function find_processo(res) {
   try {
-    const c = await fiscazSchema.find({ name: res });
+    const c = await fiscazSchema.find({ nome_empreendimento: res });
     return c;
   } catch (error) {
     console.log(error);
@@ -30,8 +30,11 @@ async function find_processo(res) {
 async function update_processo(req) {
   try {
     const doc = await fiscazSchema.findOneAndUpdate(
-      { name: req.name },
-      { quote: req.quote }
+      { nome_empreendimento: req.nome_empreendimento },
+      { valor_orcado: req.valor_orcado },
+      { autor_projeto: req.autor_projeto },
+      { fiscal_indicado: req.fiscal_indicado },
+      { fiscal_substituto: req.fiscal_substituto }
     );
     console.log(doc);
   } catch (error) {
@@ -41,7 +44,9 @@ async function update_processo(req) {
 
 async function delete_processo(res) {
   try {
-    const doc = await fiscazSchema.findOneAndDelete({ name: res.name });
+    const doc = await fiscazSchema.findOneAndDelete({
+      name: res.nome_empreendimento
+    });
     console.log(doc);
   } catch (error) {
     console.log(error);
