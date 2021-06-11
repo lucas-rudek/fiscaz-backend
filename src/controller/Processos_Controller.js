@@ -1,6 +1,7 @@
 const fiscazSchema = require("../models/fiscazSchema.js");
 
 async function create_processo(req) {
+  console.log(req);
   try {
     const c = new fiscazSchema(req);
     await c.save();

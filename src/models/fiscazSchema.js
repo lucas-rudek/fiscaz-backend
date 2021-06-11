@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const fiscazSchema = new Schema(
   {
     nome_empreendimento: String,
-    valor_orcado: Number,
+    valor_orcado: String,
     autor_projeto: String,
     fiscal_indicado: String,
     fiscal_substituto: String
