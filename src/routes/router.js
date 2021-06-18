@@ -28,22 +28,28 @@ router.get("/processos/:nome_empreendimento", async (req, res) => {
   res.json(c);
 });
 
-router.post("/processos/delete/:nome_empreendimento", async (req, res) => {
-  await Controller.delete_processo({
-    nome_empreendimento: req.body.nome_empreendimento
-  });
-  res.send(`Processo deletado: ${req.body.nome_empreendimento}.`);
-});
+router.post(
+  "/processos/delete/:delete_nome_empreendimento",
+  async (req, res) => {
+    await Controller.delete_processo({
+      nome_empreendimento: req.body.delete_nome_empreendimento
+    });
+    res.send(`Processo deletado: ${req.body.delete_nome_empreendimento}.`);
+  }
+);
 
-router.post("/processos/update/:nome_empreendimento", async (req, res) => {
-  await Controller.update_processo({
-    nome_empreendimento: req.body.nome_empreendimento,
-    valor_orcado: req.body.valor_orcado,
-    autor_projeto: req.body.autor_projeto,
-    fiscal_indicado: req.body.fiscal_indicado,
-    fiscal_substituto: req.body.fiscal_substituto
-  });
-  res.send(`Processo atualizado: ${req.body.nome_empreendimento}.`);
-});
+router.post(
+  "/processos/update/:atualiza_nome_empreendimento",
+  async (req, res) => {
+    await Controller.update_processo({
+      nome_empreendimento: req.body.atualiza_nome_empreendimento,
+      valor_orcado: req.body.atualiza_valor_orcado,
+      autor_projeto: req.body.atualiza_autor_projeto,
+      fiscal_indicado: req.body.atualiza_fiscal_indicado,
+      fiscal_substituto: req.body.atualiza_fiscal_substituto
+    });
+    res.send(`Processo atualizado: ${req.body.atualiza_nome_empreendimento}.`);
+  }
+);
 
 module.exports = router;

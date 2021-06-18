@@ -4,16 +4,18 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 const dbConfig = require("./config/db.config.js");
-var router = require("./routes/router.js");
+const router = require("./routes/router.js");
+
+const corsOptions = {
+  origin: "https://jfilp.csb.app" //fiscaz front
+};
+
+app.options("*", cors());
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-var corsOptions = {
-  origin: "https://gvcej.csb.app" //fiscaz front
-};
-
-app.use(cors(corsOptions));
 
 app.use("/", router);
 
