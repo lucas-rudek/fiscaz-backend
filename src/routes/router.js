@@ -31,9 +31,7 @@ router.get("/processos/:nome_empreendimento", async (req, res) => {
 router.post(
   "/processos/delete/:delete_nome_empreendimento",
   async (req, res) => {
-    await Controller.delete_processo({
-      nome_empreendimento: req.body.delete_nome_empreendimento
-    });
+    await Controller.delete_processo(req.body.delete_nome_empreendimento);
     res.send(`Processo deletado: ${req.body.delete_nome_empreendimento}.`);
   }
 );

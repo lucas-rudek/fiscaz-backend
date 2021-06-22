@@ -30,7 +30,7 @@ async function find_processo(req) {
 
 async function update_processo(req) {
   try {
-    const doc = await fiscazSchema.findOneAndUpdate(
+    await fiscazSchema.findOneAndUpdate(
       { nome_empreendimento: req.nome_empreendimento },
       {
         valor_orcado: req.valor_orcado,
@@ -39,23 +39,17 @@ async function update_processo(req) {
         fiscal_substituto: req.fiscal_substituto
       }
     );
-    console.log(doc);
   } catch (error) {
     console.log(error);
   }
 }
 
-//cast error, ver sobre
 async function delete_processo(req) {
   try {
-    const id = await fiscazSchema
-      .find({ nome_empreendimento: req }, "_id")
-      .exec();
-    console.log(id);
-    /*const doc = await fiscazSchema.findOneAndDelete({
-      name: req.nome_empreendimento
+    const c = await find_processo(req);
+    await fiscazSchema.findOneAndDelete({
+      _id: c[0]._id
     });
-    console.log(doc);*/
   } catch (error) {
     console.log(error);
   }
