@@ -7,7 +7,7 @@ const dbConfig = require("./config/db.config.js");
 const router = require("./routes/router.js");
 
 const corsOptions = {
-  origin: "https://jfilp.csb.app" //fiscaz front
+  origin: "*" //fiscaz front
 };
 
 app.options("*", cors());
