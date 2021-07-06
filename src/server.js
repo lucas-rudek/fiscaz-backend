@@ -8,8 +8,8 @@ const app = express();
 const dbConfig = require("./config/db.config.js");
 const router = require("./routes/router.js");
 
-process.env.AWS_ACCESS_KEY_ID = "AKIASCODF2CXOFWPCO5V";
-process.env.AWS_SECRET_ACCESS_KEY = "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";
+process.env.AWS_ACCESS_KEY_ID = "";
+process.env.AWS_SECRET_ACCESS_KEY = "";
 
 const corsOptions = {
   origin: "*" //fiscaz front
