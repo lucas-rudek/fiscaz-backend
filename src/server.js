@@ -8,8 +8,7 @@ const app = express();
 const dbConfig = require("./config/db.config.js");
 const router = require("./routes/router.js");
 
-process.env.AWS_ACCESS_KEY_ID = "";
-process.env.AWS_SECRET_ACCESS_KEY = "";
+const PORT = process.env.PORT || 8080;
 
 const corsOptions = {
   origin: "*" //fiscaz front
@@ -29,16 +28,14 @@ mongoose.connect(dbConfig.url, {
   useUnifiedTopology: true
 });
 
-const PORT = process.env.PORT || 8080;
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
 // Create unique bucket name
-var bucketName = "node-sdk-sample-" + uuid.v4();
+const bucketName = "node-teste";
 // Create name for uploaded object key
-var keyName = "hello_world.txt";
+var keyName = "hello_world_" + uuid.v4() + ".txt";
 
 // Create a promise on S3 service object
 var bucketPromise = new AWS.S3({ apiVersion: "2006-03-01" })

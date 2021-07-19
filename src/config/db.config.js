@@ -1,4 +1,5 @@
+const url = process.env.URL_MONGODB;
+
 module.exports = {
-  url:
-    "mongodb+srv://lucas:@cluster0.xguoi.mongodb.net/fiscaz?retryWrites=true&w=majority"
+  url: url
 };
